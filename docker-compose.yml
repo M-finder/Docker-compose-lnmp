@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     volumes:
       - $PWD/service/mysql/config/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - $PWD/service/mysql/data:/var/lib/mysql/
