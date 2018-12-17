@@ -1,0 +1,2 @@
+172.18.0.1 - - [17/Dec/2018:08:18:08 +0000] "GET / HTTP/1.1" 200 84842 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0" "-"
+172.18.0.1 - - [17/Dec/2018:08:18:47 +0000] "GET / HTTP/1.1" 200 85030 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0" "-"

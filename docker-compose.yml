@@ -1,0 +1,43 @@
+version: '3.7'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - $PWD/service/mysql/config/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - $PWD/service/mysql/data:/var/lib/mysql/
+      - $PWD/service/mysql/log/:/var/log/mysql/
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  php-fpm-7-3:
+    image: php:7.3-fpm
+    volumes:
+      - $PWD/www/:/var/www/html/
+      - $PWD/service/php7.3/config/:/usr/local/etc/php/
+    environment:
+      - TZ=Asia/Shanghai
+    links:
+      - mysql:mysql
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/www/:/usr/share/nginx/html/:rw
+      - $PWD/service/nginx/config:/etc/nginx/conf.d/
+      - $PWD/service/nginx/log/:/var/log/nginx/:rw
+    links:
+      - php-fpm-7-3:php-fpm-7-3
+      - redis:redis
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - $PWD/service/nginx/config/:/usr/local/etc/redis/
+  composer:
+    image: composer
+    volume:
+      - $PWD/www/:/app
