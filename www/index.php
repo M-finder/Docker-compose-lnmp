@@ -1,5 +1,5 @@
 <?php
-echo 'Docker-compose up';
-phpinfo();
+
+echo 'I am here';
 
 ?>
