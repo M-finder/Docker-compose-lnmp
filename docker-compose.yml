@@ -3,9 +3,9 @@ services:
   mysql:
     image: mysql:8.0
     volumes:
-      - $PWD/service/mysql/config/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
-      - $PWD/service/mysql/data:/var/lib/mysql/
-      - $PWD/service/mysql/log/:/var/log/mysql/
+      - ./service/mysql/config/mysqld.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      - ./service/mysql/data:/var/lib/mysql/:rw
+      - ./service/mysql/log/:/var/log/mysql/:rw
     ports:
       - "3306:3306"
     environment:
@@ -13,10 +13,13 @@ services:
   php-fpm-7-3:
     image: php:7.3-fpm
     volumes:
-      - $PWD/www/:/var/www/html/
-      - $PWD/service/php7.3/config/:/usr/local/etc/php/
+      - ./www/:/var/www/html/
+      - ./service/php7.3/config/:/usr/local/etc/php/
+      - ./service/php7.3/log/:/var/log/php-fpm
     environment:
       - TZ=Asia/Shanghai
+    depends_on:
+      - mysql
     links:
       - mysql:mysql
   nginx:
@@ -25,19 +28,22 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - $PWD/www/:/usr/share/nginx/html/:rw
-      - $PWD/service/nginx/config:/etc/nginx/conf.d/
-      - $PWD/service/nginx/log/:/var/log/nginx/:rw
+      - ./www/:/usr/share/nginx/html/:rw
+      - ./service/nginx/config:/etc/nginx/conf.d/
+      - ./service/nginx/log/:/var/log/nginx/:rw
+    depends_on:
+      - php-fpm-7-3
     links:
       - php-fpm-7-3:php-fpm-7-3
-      - redis:redis
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-    volumes:
-      - $PWD/service/nginx/config/:/usr/local/etc/redis/
+#  redis:
+#    image: redis:latest
+#    ports:
+#      - "6379:6379"
+#    volumes:
+#      - $PWD/service/nginx/config/:/usr/local/etc/redis/
   composer:
     image: composer
-    volume:
-      - $PWD/www/:/app
+    volumes:
+      - ./www/:/app
+    depends_on:
+      - php-fpm-7-3
