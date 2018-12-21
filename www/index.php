@@ -2,4 +2,7 @@
 
 echo 'I am here';
 
+
+phpinfo();
+
 ?>

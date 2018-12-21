@@ -14,8 +14,8 @@ services:
     image: php:7.3-fpm
     volumes:
       - ./www/:/var/www/html/
-      - ./service/php7.3/config/:/usr/local/etc/php/
-      - ./service/php7.3/log/:/var/log/php-fpm
+      - ./service/php7.3/config/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./service/php7.3/config/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
     environment:
       - TZ=Asia/Shanghai
     depends_on:
