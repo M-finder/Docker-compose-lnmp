@@ -5,3 +5,4 @@
 2018/12/21 01:45:04 [error] 6#6: *1 open() "/usr/share/nginx/html/laravel/public/login" failed (2: No such file or directory), client: 172.18.0.1, server: l.s, request: "GET /login HTTP/1.1", host: "l.s", referrer: "http://l.s/"
 2018/12/21 02:13:57 [error] 6#6: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost"
 2018/12/21 07:06:58 [error] 6#6: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost"
+2018/12/22 03:19:41 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"

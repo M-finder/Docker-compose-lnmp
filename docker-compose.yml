@@ -10,12 +10,12 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-  php-fpm-7-3:
-    image: php:7.3-fpm
+  php-fpm-7-2:
+    image: php:7.2-fpm
     volumes:
       - ./www/:/var/www/html/
-      - ./service/php7.3/config/php.ini:/usr/local/etc/php/php.ini:ro
-      - ./service/php7.3/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ./service/php7.2/config/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./service/php7.2/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
     environment:
       - TZ=Asia/Shanghai
     depends_on:
@@ -32,9 +32,9 @@ services:
       - ./service/nginx/config:/etc/nginx/conf.d/
       - ./service/nginx/log/:/var/log/nginx/:rw
     depends_on:
-      - php-fpm-7-3
+      - php-fpm-7-2
     links:
-      - php-fpm-7-3:php-fpm-7-3
+      - php-fpm-7-2:php-fpm-7-2
 #  redis:
 #    image: redis:latest
 #    ports:
@@ -46,4 +46,4 @@ services:
     volumes:
       - ./www/:/app
     depends_on:
-      - php-fpm-7-3
+      - php-fpm-7-2
