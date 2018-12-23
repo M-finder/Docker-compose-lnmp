@@ -4,3 +4,5 @@
 172.21.0.1 - - [22/Dec/2018:07:58:50 +0000] "GET /js/app.js HTTP/1.1" 200 337118 "http://laravel.cc/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" "-"
 172.21.0.1 - - [22/Dec/2018:07:58:50 +0000] "GET /css/app.css HTTP/1.1" 200 127801 "http://laravel.cc/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" "-"
 172.21.0.1 - - [22/Dec/2018:08:06:00 +0000] "GET / HTTP/1.1" 200 85831 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" "-"
+172.21.0.1 - - [22/Dec/2018:09:40:00 +0000] "POST /login HTTP/1.1" 302 344 "http://laravel.cc/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" "-"
+172.21.0.1 - - [22/Dec/2018:09:40:00 +0000] "GET /home HTTP/1.1" 200 3331 "http://laravel.cc/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" "-"

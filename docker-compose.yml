@@ -11,7 +11,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
   php-fpm-7-2:
-    image: php:7.2-fpm
+    #image: php:7.2-fpm
+    build: ./service/php7.2/
     volumes:
       - ./www/:/var/www/html/
       - ./service/php7.2/config/php.ini:/usr/local/etc/php/php.ini:ro
