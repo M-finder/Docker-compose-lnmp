@@ -1,3 +1,4 @@
 /service/mysql/data/
 /.idea/
 /www/
+/service/nginx/log/

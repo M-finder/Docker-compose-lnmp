@@ -15,7 +15,7 @@ services:
     build: ./service/php7.2/
     volumes:
       - ./www/:/var/www/html/
-      - ./service/php7.2/config/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./service/php7.2/config/php.ini:/usr/local/etc/php/php.ini:rw
       - ./service/php7.2/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
     environment:
       - TZ=Asia/Shanghai
